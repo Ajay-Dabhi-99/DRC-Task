@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "ajay@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": 1,
+      "email": "test@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": 1,
+      "email": "hello@gmail.com",
+      "password": "123"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "some comment",
+      "description": "some comment",
+      "date": "25-12-2023"
+    }
+  ]
+}
