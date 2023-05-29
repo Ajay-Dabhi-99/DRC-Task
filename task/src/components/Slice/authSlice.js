@@ -19,25 +19,20 @@ export const logInUser = createAsyncThunk("auth/login", async (payload) => {
   return await logIn(payload);
 });
 
-const authSlice = createSlice({
-  name: "authSlice",
-  initialState,
-  reducers: {
-    removeToken: (state, action) => {
-      sessionStorage.clear();
-      state.user = {};
-    }
-  },
-  extraReducers: (builder) => {
-    builder.addCase(logInUser.fulfilled, (state, action) => {
-      let user = action?.payload?.data;
-      state.user = user ? user : {};
-    });
-  },
-});
-export default authSlice.reducer;
+// const authSlice = createSlice({
+//   name: "authSlice",
+//   initialState,
+//   reducers: {},
+//   // extraReducers: (builder) => {
+//   //   builder.addCase(logInUser.fulfilled, (state, action) => {
+//   //     let user = action?.payload?.data;
+//   //     state.user = user ? user : {};
+//   //   });
+//   // },
+// });
+// export default authSlice.reducer;
 
-export const { removeToken } = authSlice.actions;
+// // export const { removeToken } = authSlice.actions;
 
 // export const selectUser = (state) => state.auth.user;
 

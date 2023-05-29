@@ -32,7 +32,7 @@ function Login() {
       }
       console.log("respond", foundUser);
     } catch (error) {
-      toast.error("Something Went TO Wrong!!!");
+      toast.error("Something Went To Wrong!!!");
     }
   };
 
@@ -45,7 +45,6 @@ function Login() {
           </h1>
           <div>
             <label
-              htmlFor=""
               className="block text-sm text-[#1E293B] font-bold pb-1"
             >
               Email or Phone
@@ -64,7 +63,6 @@ function Login() {
           </div>
           <div>
             <label
-              htmlFor=""
               className="block text-sm text-[#1E293B] font-bold pb-1"
             >
               Password
