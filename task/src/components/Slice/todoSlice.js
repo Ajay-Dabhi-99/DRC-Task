@@ -2,23 +2,28 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import {
+  RegisterUser,
   addNewTodo,
   deleteTodo,
   fetchTodos,
+  getTodo,
+  logIn,
+  updateTodo,
 } from "../../redux/services/todoServices";
-
-const getDefaultUser = () => {
-  let user = sessionStorage.getItem("user");
-  if (user && user !== "undefined") {
-    return JSON.parse(user);
-  } else {
-    return null;
-  }
-};
 
 const initialState = {
   // addtodos: [],
 };
+
+// login user
+export const logInUser = createAsyncThunk("auth/login", async () => {
+  return await logIn();
+});
+
+// Register user
+export const registerUser = createAsyncThunk("auth/login", async (payload) => {
+  return await RegisterUser(payload);
+});
 
 // fetch Todo
 export const fetchTodo = createAsyncThunk("todo/fetchTodo", async (id) => {
@@ -29,6 +34,19 @@ export const fetchTodo = createAsyncThunk("todo/fetchTodo", async (id) => {
 export const addTodo = createAsyncThunk("addtodo/addTodo", async (payload) => {
   return await addNewTodo(payload);
 });
+
+// Get Todo
+export const getTodos = createAsyncThunk("update/todo", async (id) => {
+  return await getTodo(id);
+});
+
+// update Todo
+export const updateTodos = createAsyncThunk(
+  "update/todo",
+  async ({ id, payload }) => {
+    return await updateTodo(id, payload);
+  }
+);
 
 // Delete Todo
 export const deleteTodos = createAsyncThunk("delete/todo", async (id) => {

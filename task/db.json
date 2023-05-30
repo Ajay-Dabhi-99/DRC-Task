@@ -1,20 +1,32 @@
 {
   "users": [
     {
-      "id": 1,
+      "name": "Ajay Dabhi",
       "email": "ajay@gmail.com",
-      "password": "123"
+      "password": "123",
+      "id": 1
     },
     {
-      "id": 2,
+      "name": "test",
       "email": "test@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": 3,
-      "email": "hello@gmail.com",
-      "password": "123"
+      "password": "123",
+      "id": 2
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "title": "ajay update",
+      "description": "ajy",
+      "date": "2023-05-30T18:01:20.227Z",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "title": "test update",
+      "description": "ajay",
+      "date": "2023-05-30T18:01:39.731Z",
+      "userId": 2,
+      "id": 2
+    }
+  ]
 }

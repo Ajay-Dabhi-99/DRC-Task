@@ -13,8 +13,6 @@ function Dashboard() {
 
   const TodoList = useSelector((state) => state.todo.Todos);
 
-  console.log("TodoList", TodoList);
-
   // fetch user wise Todo
   const getTodos = async () => {
     try {
@@ -50,7 +48,7 @@ function Dashboard() {
   return (
     <>
       <h3 className="text-xl font-bold text-[#1E293B] bg-[#C8EE44] text-center p-5">
-        Welcome To Your Todos
+        Welcome {userId.name} To Your Todos
       </h3>
       <div className="flex justify-center items-center space-x-3 my-5">
         <button
@@ -67,36 +65,35 @@ function Dashboard() {
         </button>
       </div>
       <div className="w-full flex flex-wrap px-5">
-        {TodoList.length > 0 ? (
-          TodoList?.map((todo) => (
-            <div key={todo.id} className="w-full md:w-1/2 lg:w-1/3 p-3">
-              <div className="items-center justify-center w-full flex-wrap bg-white border border-[#E2E8F0] rounded-md shadow-lg p-5 space-y-2">
-                <h4 className="text-lg font-semibold text-[#1e293b]">
-                  {todo.title}
-                </h4>
-                <p className="text-sm font-semibold text-[#878c93]">
-                  {todo.description}
-                </p>
-                <span className="text-[#3a3a3b] text-sm inline-block">
-                  {moment(todo.date).format("YYYY-MM-DD , h:mm:ss A")}
-                </span>
-                <div className="flex justify-end items-center space-x-3">
-                  <button className="capitalize text-xs font-medium px-2 py-2 bg-blue-600 text-white rounded-sm">
-                    edit
-                  </button>
-                  <button
-                    onClick={() => handelDeleteTodo(todo.id)}
-                    className="capitalize text-xs font-medium px-2 py-2 bg-red-600 text-white rounded-sm"
-                  >
-                    Delete
-                  </button>
-                </div>
+        {TodoList?.map((todo) => (
+          <div key={todo.id} className="w-full md:w-1/2 lg:w-1/3 p-3">
+            <div className="items-center justify-center w-full flex-wrap bg-white border border-[#E2E8F0] rounded-md shadow-lg p-5 space-y-2">
+              <h4 className="text-lg font-semibold text-[#1e293b]">
+                {todo.title}
+              </h4>
+              <p className="text-sm font-semibold text-[#878c93]">
+                {todo.description}
+              </p>
+              <span className="text-[#3a3a3b] text-sm inline-block">
+                {moment(todo.date).format("YYYY-MM-DD , h:mm:ss A")}
+              </span>
+              <div className="flex justify-end items-center space-x-3">
+                <button
+                  onClick={() => navigate(`/update/${todo.id}`)}
+                  className="capitalize text-xs font-medium px-2 py-2 bg-blue-600 text-white rounded-sm"
+                >
+                  edit
+                </button>
+                <button
+                  onClick={() => handelDeleteTodo(todo.id)}
+                  className="capitalize text-xs font-medium px-2 py-2 bg-red-600 text-white rounded-sm"
+                >
+                  Delete
+                </button>
               </div>
             </div>
-          ))
-        ) : (
-          <h1>No Todo Plz add</h1>
-        )}
+          </div>
+        ))}
       </div>
     </>
   );

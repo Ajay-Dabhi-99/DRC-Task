@@ -21,10 +21,10 @@ const AddTodo = () => {
   // Add Todo
   const handelAddTodo = async (e) => {
     const payload = { ...addTodos, date: new Date(), userId: userId.id };
+    console.log("payload",payload);
     if (addTodos.title && addTodos.description !== "") {
       try {
         const response = await dispatch(addTodo(payload)).unwrap();
-        console.log(response.data);
         if (response.data !== "") {
           navigate("../dashboard");
           toast.success("Todo Add successful!");
